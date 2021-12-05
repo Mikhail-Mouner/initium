@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HotelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Middleware auth
+Route::middleware('auth')->group(function () {
+    // Home Page
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/{slug}/branches', [HotelController::class, 'index'])->name('hotel_branches');
+    Route::get('/{slug}/branches/{id}', [HotelController::class, 'rooms'])->name('hotel_branches');
+    Route::get('/{slug}/branches/{id}/rooms', [HotelController::class, 'rooms'])->name('hotel_branch_rooms');
+});
