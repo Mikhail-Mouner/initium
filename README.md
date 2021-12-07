@@ -1,4 +1,4 @@
-#  Frontend-task
+#  Initium Solution -task
 
 ### _Developing By Mikhail_
 
