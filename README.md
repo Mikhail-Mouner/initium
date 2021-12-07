@@ -16,7 +16,7 @@ git clone https://github.com/Mikhail-Mouner/initium.git
 ```
 
 ```sh
-cp .env.exapmle .env
+cp .env.example .env
 ```
 
 ```sh
